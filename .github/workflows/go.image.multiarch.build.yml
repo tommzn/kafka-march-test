@@ -3,7 +3,7 @@ name: Multi Arch Image Build
 on:
   create:
     tags:
-      - 'v*''
+      - 'v*'
 
 jobs:
   go-image-build:
