@@ -24,7 +24,7 @@ RUN apk update && apk upgrade && apk add pkgconf git bash build-base sudo
 
 COPY .  .
 
-RUN go build -tags musl -v -o build_artifact_bin
+RUN go build -tags musl -ldflags '-extldflags "-static"' -o build_artifact_bin
 
 FROM --platform=${BUILDPLATFORM:-linux/amd64} gcr.io/distroless/static:nonroot
 
