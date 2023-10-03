@@ -2,8 +2,8 @@ name: Multi Arch Image Build
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "v*"
 
 jobs:
   go-image-build:
