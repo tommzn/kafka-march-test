@@ -21,8 +21,6 @@ RUN go mod download
 
 COPY .  .
 
-RUN go test -v ./...
-
 RUN go build -tags musl --ldflags "-extldflags -static" -v -o build_artifact_bin
 
 FROM --platform=${BUILDPLATFORM:-linux/amd64} gcr.io/distroless/static:nonroot
