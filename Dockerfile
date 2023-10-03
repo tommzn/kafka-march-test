@@ -19,9 +19,12 @@ COPY go.mod go.mod
 COPY go.sum go.sum
 RUN go mod download
 
+RUN apk -U add ca-certificates
+RUN apk update && apk upgrade && apk add pkgconf git bash build-base sudo
+
 COPY .  .
 
-RUN go build -tags musl --ldflags "-extldflags -static" -v -o build_artifact_bin
+RUN go build -tags musl -ldflags '-extldflags "-static"' -v -o build_artifact_bin
 
 FROM --platform=${BUILDPLATFORM:-linux/amd64} gcr.io/distroless/static:nonroot
 
