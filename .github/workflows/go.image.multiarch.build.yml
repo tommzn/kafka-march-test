@@ -1,10 +1,10 @@
-
 name: Multi Arch Image Build
 
 on:
   push:
     branches:
       - main
+
 jobs:
   go-image-build:
     uses:  tommzn/github-ci/.github/workflows/go.image.multiarch.build.yml@v1.0.56
