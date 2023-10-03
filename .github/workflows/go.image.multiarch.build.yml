@@ -7,6 +7,6 @@ on:
 
 jobs:
   go-image-build:
-    uses:  tommzn/github-ci/.github/workflows/go.image.multiarch.build.yml@v1.0.58
+    uses:  tommzn/github-ci/.github/workflows/go.image.multiarch.build.yml@v1.0.59
     secrets:
       cr-pat: ${{ secrets.CR_PAT }}
