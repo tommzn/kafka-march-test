@@ -10,3 +10,4 @@ jobs:
     uses:  tommzn/github-ci/.github/workflows/go.image.multiarch.build.yml@v1.0.56
     secrets:
       cr-pat: ${{ secrets.CR_PAT }}
+      
