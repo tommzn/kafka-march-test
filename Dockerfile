@@ -28,8 +28,6 @@ RUN go build -tags musl -ldflags '-extldflags "-static"' -o build_artifact_bin
 
 FROM --platform=${BUILDPLATFORM:-linux/amd64} gcr.io/distroless/static:nonroot
 
-LABEL org.opencontainers.image.source=https://github.com/tommzn/hdb-api
-
 WORKDIR /go
 
 COPY --from=builder /go/build/build_artifact_bin kafka-march-bin
