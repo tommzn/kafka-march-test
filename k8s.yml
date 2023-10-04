@@ -38,6 +38,7 @@ spec:
       containers:
         - name: de-tommzn-kafka-march-test
           image: ghcr.io/tommzn/kafka-march-test:latest
+          args: ["--bootstrap-servers", "localhost", "--topic", "hello-world"]
           imagePullPolicy: Always  
       imagePullSecrets:
         - name: ghcr-credentials
