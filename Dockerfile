@@ -19,6 +19,9 @@ COPY go.mod go.mod
 COPY go.sum go.sum
 RUN go mod download
 
+RUN apk -U add ca-certificates
+RUN apk update && apk upgrade && apk add pkgconf git bash build-base sudo gcc musl-dev
+
 COPY .  .
 
 RUN go build -tags musl -ldflags '-extldflags "-static"' -o build_artifact_bin
