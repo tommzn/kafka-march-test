@@ -1,4 +1,4 @@
-FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.19-alpine as builder
+FROM --platform=linux/${TARGETARCH:-amd64} golang:1.19-alpine as builder
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
@@ -18,9 +18,6 @@ WORKDIR /go/build
 COPY go.mod go.mod
 COPY go.sum go.sum
 RUN go mod download
-
-RUN apk -U add ca-certificates
-RUN apk update && apk upgrade && apk add pkgconf git bash build-base sudo gcc musl-dev
 
 COPY .  .
 
